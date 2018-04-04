@@ -20,6 +20,7 @@ bool PasswordDialog::eventFilter(QObject *o,QEvent*e) {
         dialog->show();
         dialog->accept();
     }
+    return true;
 }
 
 PasswordDialog::~PasswordDialog()

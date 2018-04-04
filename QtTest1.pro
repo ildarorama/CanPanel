@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,26 +18,39 @@ TEMPLATE = app
 DEFINES += QT_DEPRECATED_WARNINGS
 
 # You can also make your code fail to compile if you use deprecated APIs.
-# In order to do so, uncomment the following line.
+# In order to do so, uncomment the fosllowing line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+#DEPENDPATH += /usr/lib
+LIBS += -lzmq -lboost_system -lboost_thread -lprotobuf
 
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
     numpaddialog.cpp \
-    passworddialog.cpp
+    passworddialog.cpp \
+    message.pb.cc \
+    selectcodedialog.cpp \
+    codeitem.cpp \
+    zmqworkerthread.cpp \
+    telemetrybean.cpp
 
 HEADERS += \
         mainwindow.h \
     numpaddialog.h \
-    passworddialog.h
+    passworddialog.h \
+    message.pb.h \
+    selectcodedialog.h \
+    codeitem.h \
+    zmqworkerthread.h \
+    telemetrybean.h
 
 FORMS += \
         mainwindow.ui \
     numpaddialog.ui \
-    passworddialog.ui
+    passworddialog.ui \
+    selectcodedialog.ui
 
 linux-* {
 target.path = /tmp
